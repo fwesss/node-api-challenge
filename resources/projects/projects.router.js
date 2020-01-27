@@ -2,7 +2,7 @@ import express from 'express'
 import Validation from 'folktale/validation'
 import { validator, didItValidate } from '../../utils/validator'
 import controllers from './projects.controllers'
-import projects from './projects.model'
+import { get } from './projects.model'
 
 const { Success } = Validation
 
@@ -30,9 +30,10 @@ const validateProject = async (req, res, next) => {
     next()
   }
 }
+
 const validateProjectId = async (req, res, next) => {
   try {
-    const project = await projects.get(req.params.id)
+    const project = await get(req.params.id)
     if (project) {
       next()
     } else {
@@ -58,5 +59,7 @@ router
   .get(controllers.getOne)
   .put(validateProject, controllers.updateOne)
   .delete(controllers.removeOne)
+
+router.route('/:id/actions').get(controllers.getManyProjectActions)
 
 export default router
