@@ -1,5 +1,6 @@
 import express from 'express'
 import morgan from 'morgan'
+import cors from 'cors'
 import projectRouter from './resources/projects/projects.router'
 import actionRouter from './resources/actions/actions.router'
 
@@ -15,6 +16,7 @@ const jsonSyntaxErrorHandler = (error, _req, res, next) => {
 
 server.use(express.json())
 server.use(morgan('dev'))
+server.use(cors())
 server.use(jsonSyntaxErrorHandler)
 server.use('/api/projects', projectRouter)
 server.use('/api/actions', actionRouter)
