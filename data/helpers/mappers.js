@@ -1,37 +1,31 @@
-module.exports = {
-  intToBoolean,
-  booleanToint,
-  projectToBody,
-  actionToBody,
-};
+export const intToBoolean = int => int === 1
 
-function intToBoolean(int) {
-  return int === 1 ? true : false;
-}
+export const booleanToint = bool => (bool === true ? 1 : 0)
 
-function booleanToint(bool) {
-  return bool === true ? 1 : 0;
-}
-
-function projectToBody(project) {
+export const projectToBody = project => {
   const result = {
     ...project,
     completed: intToBoolean(project.completed),
-  };
+  }
 
   if (project.actions) {
     result.actions = project.actions.map(action => ({
       ...action,
       completed: intToBoolean(action.completed),
-    }));
+    }))
   }
 
-  return result;
+  return result
 }
 
-function actionToBody(action) {
-  return {
-    ...action,
-    completed: intToBoolean(action.completed),
-  };
+export const actionToBody = action => ({
+  ...action,
+  completed: intToBoolean(action.completed),
+})
+
+export default {
+  intToBoolean,
+  booleanToint,
+  projectToBody,
+  actionToBody,
 }

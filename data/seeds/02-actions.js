@@ -16,5 +16,5 @@ exports.seed = function(knex) {
       description: 'Design and Build API Endpoints',
       notes: 'This is where the magic happens!',
     },
-  ]);
-};
+  ])
+}
