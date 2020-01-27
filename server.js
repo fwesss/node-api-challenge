@@ -1,6 +1,6 @@
 import express from 'express'
 import morgan from 'morgan'
-// import projectRouter from './resources/projects/projects.router'
+import projectRouter from './resources/projects/projects.router'
 import actionRouter from './resources/actions/actions.router'
 
 const server = express()
@@ -16,7 +16,7 @@ const jsonSyntaxErrorHandler = (error, _req, res, next) => {
 server.use(express.json())
 server.use(morgan('dev'))
 server.use(jsonSyntaxErrorHandler)
-// server.use('/api/projects', projectRouter)
+server.use('/api/projects', projectRouter)
 server.use('/api/actions', actionRouter)
 
 server.get('/', (_req, res) => {
