@@ -26,20 +26,6 @@ const actionValidationResult = req =>
     .concat(descriptionValidator(req))
     .concat(notesValidator(req))
 
-const validateActionId = async (req, res, next) => {
-  try {
-    const action = await actions.get(req.params.id)
-    if (action) {
-      next()
-    } else {
-      res.status(400).json({ error: 'Invalid action ID' })
-    }
-  } catch (error) {
-    console.error(error)
-    res.status(500).json({ error: 'Action information could not be retrieved' })
-  }
-}
-
 const validateAction = async (req, res, next) => {
   const didActionValidate = didItValidate(actionValidationResult(req))
 
@@ -59,6 +45,20 @@ const validateAction = async (req, res, next) => {
         .status(500)
         .json({ error: 'Project information could not be retrieved' })
     }
+  }
+}
+
+const validateActionId = async (req, res, next) => {
+  try {
+    const action = await actions.get(req.params.id)
+    if (action) {
+      next()
+    } else {
+      res.status(400).json({ error: 'Invalid action ID' })
+    }
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error: 'Action information could not be retrieved' })
   }
 }
 
