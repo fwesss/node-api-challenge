@@ -1,5 +1,5 @@
-import db from '../dbConfig'
-import { actionToBody } from './mappers'
+import db from '../../data/dbConfig'
+import { actionToBody } from '../../data/helpers/mappers'
 
 const get = id => {
   const query = db('actions')

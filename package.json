@@ -23,7 +23,8 @@
     "format": "yarn run prettier --ignore-path .gitignore --write \"**/*.+(js|json|css|md|mdx|html)\"",
     "lint": "eslint --ext .js .",
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(json|js)\"",
-    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node index.js",
+    "server": "nodemon --experimental-modules --es-module-specifier-resolution=node index.js",
+    "start": "node --experimental-modules --es-module-specifier-resolution=node index.js",
     "validate": "npm-run-all --parallel check-format lint"
   },
   "husky": {
@@ -42,9 +43,11 @@
     ]
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^3.21.2",
     "knex": "^0.20.8",
+    "morgan": "^1.9.1",
     "sqlite3": "^4.1.1"
   },
   "devDependencies": {
