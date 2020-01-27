@@ -38,15 +38,36 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your Team Lead.
 
-- [ ] Mention two parts of Express that you learned about this week.
+- [x] Mention two parts of Express that you learned about this week.
 
-- [ ] Describe Middleware?
+  - HTTP methods can be chained off the express router's route() method.
 
-- [ ] Describe a Resource?
+    For example:
 
-- [ ] What can the API return to help clients know if a request was successful?
+    ```javascript
+    router
+      .route('/:id')
+      .get(controllers.getOne)
+      .put(validateProject, controllers.updateOne)
+      .delete(controllers.removeOne)
+    ```
 
-- [ ] How can we partition our application into sub-applications?
+  - There are five CRUD operations (getOne, getMany, addOne, updateOne, deleteOne) that are used repeatedly. Those functions can be written generally so that they only need to be written once. Specificity can be added with middleware.
+
+- [x] Describe Middleware?
+
+  - Middleware is used to intercept a request and have access to the req res, and next parameters. They can be read or modify those parameters before sending them to the next middleware or request handler. Similar to thunks.
+
+- [x] Describe a Resource?
+
+  - A resource is something on the server that can be stored and is manipulated by HTTP methods.
+
+- [x] What can the API return to help clients know if a request was successful?
+
+  - A 200 series response code and an optional success message.
+
+- [x] How can we partition our application into sub-applications?
+  - We can use routing to section our application off into unique paths.
 
 ## Minimum Viable Product
 
