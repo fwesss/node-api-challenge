@@ -36,7 +36,7 @@ export const createOne = model => async (req, res) => {
 
 export const updateOne = model => async (req, res) => {
   try {
-    const updated = await model.update(req.params.id)(req.body)
+    const updated = await model.update(req.params.id, req.body)
     if (updated) {
       res.status(200).json(updated)
     } else {
