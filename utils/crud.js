@@ -1,4 +1,4 @@
-export const getMany = model => async (req, res) => {
+export const getMany = model => async (_req, res) => {
   try {
     const items = await model.get()
     res.status(200).json(items)
@@ -10,7 +10,7 @@ export const getMany = model => async (req, res) => {
 
 export const getOne = model => async (req, res) => {
   try {
-    const item = await model.getById(req.params.id)
+    const item = await model.get(req.params.id)
     if (item) {
       res.status(200).json(item)
     } else {

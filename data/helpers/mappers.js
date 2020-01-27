@@ -1,8 +1,8 @@
-const intToBoolean = int => int === 1
+export const intToBoolean = int => int === 1
 
-const booleanToint = bool => (bool === true ? 1 : 0)
+export const booleanToint = bool => (bool === true ? 1 : 0)
 
-const projectToBody = project => {
+export const projectToBody = project => {
   const result = {
     ...project,
     completed: intToBoolean(project.completed),
@@ -18,7 +18,7 @@ const projectToBody = project => {
   return result
 }
 
-const actionToBody = action => ({
+export const actionToBody = action => ({
   ...action,
   completed: intToBoolean(action.completed),
 })
