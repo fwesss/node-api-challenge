@@ -16,19 +16,19 @@ The Minimum Viable Product must be completed in three hours.
 
 Follow these steps to set up and work on your project:
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your _Team Lead_ as collaborator on Github.
-- [ ] Clone your forked version of the Repository.
-- [ ] Create a new Branch on the clone: git checkout -b `firstName-lastName`.
-- [ ] Implement the project on this Branch, committing changes regularly.
-- [ ] Push commits: git push origin `firstName-lastName`.
+- [x] Create a forked copy of this project.
+- [x] Add your _Team Lead_ as collaborator on Github.
+- [x] Clone your forked version of the Repository.
+- [x] Create a new Branch on the clone: git checkout -b `firstName-lastName`.
+- [x] Implement the project on this Branch, committing changes regularly.
+- [x] Push commits: git push origin `firstName-lastName`.
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge `firstName-lastName` Branch into master on **your fork, don't make Pull Requests against Lambda's repository**.
-- [ ] Please don't merge your own pull request.
-- [ ] Add your _Team Lead_ as a Reviewer on the Pull-request
-- [ ] Your _Team Lead_ will count the challenge as done by merging the branch into _master_.
+- [x] Submit a Pull-Request to merge `firstName-lastName` Branch into master on **your fork, don't make Pull Requests against Lambda's repository**.
+- [x] Please don't merge your own pull request.
+- [x] Add your _Team Lead_ as a Reviewer on the Pull-request
+- [x] Your _Team Lead_ will count the challenge as done by merging the branch into _master_.
 
 ## Commits
 
@@ -38,25 +38,46 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your Team Lead.
 
-- [ ] Mention two parts of Express that you learned about this week.
+- [x] Mention two parts of Express that you learned about this week.
 
-- [ ] Describe Middleware?
+  - HTTP methods can be chained off the express router's route() method.
 
-- [ ] Describe a Resource?
+    For example:
 
-- [ ] What can the API return to help clients know if a request was successful?
+    ```javascript
+    router
+      .route('/:id')
+      .get(controllers.getOne)
+      .put(validateProject, controllers.updateOne)
+      .delete(controllers.removeOne)
+    ```
 
-- [ ] How can we partition our application into sub-applications?
+  - There are five CRUD operations (getOne, getMany, addOne, updateOne, deleteOne) that are used repeatedly. Those functions can be written generally so that they only need to be written once. Specificity can be added with middleware.
+
+- [x] Describe Middleware?
+
+  - Middleware is used to intercept a request and have access to the req res, and next parameters. They can be read or modify those parameters before sending them to the next middleware or request handler. Similar to thunks.
+
+- [x] Describe a Resource?
+
+  - A resource is something on the server that can be stored and is manipulated by HTTP methods.
+
+- [x] What can the API return to help clients know if a request was successful?
+
+  - A 200 series response code and an optional success message.
+
+- [x] How can we partition our application into sub-applications?
+  - We can use routing to section our application off into unique paths.
 
 ## Minimum Viable Product
 
-- [ ] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
-- [ ] Configure an _npm script_ named _"start"_ that will execute your code using _node_.
+- [x] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
+- [x] Configure an _npm script_ named _"start"_ that will execute your code using _node_.
 
 Design and build the necessary endpoints to:
 
-- [ ] Perform CRUD operations on _projects_ and _actions_. When adding an action, make sure the `project_id` provided belongs to an existing `project`. If you try to add an action with an `id` of 3 and there is no project with that `id` the database will return an error.
-- [ ] Retrieve the list of actions for a project.
+- [x] Perform CRUD operations on _projects_ and _actions_. When adding an action, make sure the `project_id` provided belongs to an existing `project`. If you try to add an action with an `id` of 3 and there is no project with that `id` the database will return an error.
+- [x] Retrieve the list of actions for a project.
 
 Please read the following sections before implementing the Minimum Viable Product, they describe how the database is structured and the files and methods available for interacting with the data.
 
@@ -100,7 +121,7 @@ We have provided test data for all the resources.
 
 ## Stretch Goal
 
-- Use `create-react-app` to create an application in a separate folder (outside the API project folder). Name it anything you want.
+- [x] Use `create-react-app` to create an application in a separate folder (outside the API project folder). Name it anything you want.
 - From the React application show a list of all _projects_ using the API you built.
 - Add functionality to show the details of a project, including its actions, when clicking a project name in the list. Use React Router to navigate to a separate route to show the project details.
 - Add styling!
